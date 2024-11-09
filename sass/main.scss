@@ -1,0 +1,352 @@
+@import "abstract/variables";
+@import "abstract/mixins";
+@import "abstract/functions";
+
+@import "base/base";
+
+
+/* Header and Navigation Styles */
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: $primary-color;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+  
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px; 
+    height: 60px;
+}
+  
+.logo img {
+    height: 40px; 
+}
+  
+.nav__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
+  
+    li a {
+      &:link,
+      &:visited {
+        @include link-style($text-color-light);
+        text-decoration: none;
+        font-weight: 400;
+        padding: 5px 10px; 
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+}
+
+.nav__btn {
+    display: flex;
+    gap: 8px;
+  
+    &--main {
+      background-color: $secondary-color;
+      @extend %btn-style;
+    }
+  }
+  
+  main,
+   .content {
+    padding-top: 80px;
+}
+  
+  
+%btn-style {
+    padding: 8px 5px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    background-color: $secondary-color;
+    color: $text-color-light;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $hover-darken; 
+    }
+}
+  
+
+.nav__btn{
+    display: flex;
+    gap: 8px;
+
+    &--main{
+        background-color:$secondary-color;
+        @extend %btn-style;
+    }
+
+}
+
+
+/* Home Section */
+.home__section {
+    height: 100vh;
+    background: url("../img/720entrance.jpg") no-repeat center center/cover; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $primary-color;
+    font-size: 28px;
+}
+
+
+.hero__content h1 {
+    font-size: 36px;
+    color: $primary-color; 
+}
+
+.nav__btn--main {
+    @extend %btn-style;
+    cursor: pointer;
+    width: 170px;
+}
+  
+
+
+// School Section
+.school__section {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+    
+    
+} 
+
+
+.school__section h2{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: $primary-color;
+}
+
+.school__section h3{
+    color: $primary-color;
+    margin: 10px 0;
+}
+
+
+.school__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--project-item{
+        background-color: #ffffff;
+        margin: 20px;
+        padding: 30px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+        width:calc(33.333% - 40px);
+        text-align: center ;        
+    }
+}
+
+
+// Courses Section
+.courses__section {
+    padding: 60px 0;
+    background-color: #ffffff;
+} 
+
+.courses__section h2{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: $primary-color;
+}
+
+.courses__section h3{
+    color: $primary-color;
+    margin: 10px 0;
+}
+
+
+.course__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--project-item{
+        background-color: #f5f5f5;
+        margin: 20px;
+        padding: 30px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+        width:calc(33.333% - 40px);
+        text-align: center ;        
+    }
+}
+
+.project-img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+
+/* Contact Section */
+.contact__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f4f4f4;
+  
+    .container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+  
+    h2 {
+      color: $primary-color;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      color: $text-color-dark;
+      margin: 10px 0 30px;
+    }
+  
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%; 
+      max-width: 500px; 
+      margin: 0 auto;
+  
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+  
+        label {
+          color: $primary-color;
+          font-weight: 200;
+          margin-bottom: 5px;
+          text-align: left;
+          width: 100%; 
+        }
+  
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid $border-color;
+          border-radius: 5px;
+          font-size: 16px;
+          color: $text-color-dark;
+          background-color: #ffffff;
+  
+          &:focus {
+            outline: none;
+            border-color: $secondary-color;
+            box-shadow: 0 0 4px rgba($secondary-color, 0.4);
+          }
+        }
+      }
+  
+      .nav__btn {
+        display: flex;
+        justify-content: center;
+  
+        .nav__btn--main {
+          @extend %btn-style;
+          cursor: pointer;
+        }
+      }
+    }
+}
+
+
+// Footer Section
+.footer {
+    background-color: darken($primary-color, 20%);
+    padding: 40px 0;
+    color: $text-color-light;
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5px; 
+        flex-wrap: wrap;
+    }
+
+    .social-links {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        order: 1;
+        margin: 10px 0;
+
+        li {
+            a {
+                color: $text-color-light;
+                text-decoration: none;
+                
+                &:hover {
+                    color: $hover-darken;
+                }
+            }
+        }
+    }
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+    margin: 10px 0;
+
+       li {
+        margin: 5px 0;
+
+            a {
+                color: $text-color-light;
+                text-decoration: none;
+                font-size: 16px;
+                
+                &:hover {
+                    color: $hover-darken;
+                }
+            }
+        }
+}
+
+    
+    p {
+        order: 3;
+        margin: 10px 0;
+        text-align: left;
+        color: $text-color-light;
+        
+    }
+}
