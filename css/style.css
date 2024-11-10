@@ -27,6 +27,17 @@
   height: 40px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+
 .nav__links {
   display: flex;
   align-items: center;
@@ -53,12 +64,41 @@
 .nav__btn--main {
   background-color: #ff6f61;
 }
-
-main,
-.content {
+.nav__btn main,
+.nav__btn .content {
   padding-top: 80px;
 }
 
+@media (max-width: 768px) {
+  .navigation .nav__links,
+  .navigation .nav__btn {
+    display: none;
+    flex-direction: column;
+    background-color: #0000ff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    gap: 10px;
+    width: 200px;
+  }
+  .navigation .nav__links li {
+    width: 100%;
+    text-align: center;
+  }
+  .navigation .hamburger {
+    display: block;
+  }
+  .navigation #menu-toggle:checked + .hamburger + .nav__links,
+  .navigation #menu-toggle:checked + .hamburger + .nav__links + .nav__btn {
+    display: flex;
+  }
+  .navigation .nav__btn--main {
+    width: 100%;
+    text-align: center;
+  }
+}
 .contact__section .contact-form .nav__btn .nav__btn--main, .nav__btn--main {
   padding: 8px 5px;
   border-radius: 5px;
@@ -75,14 +115,6 @@ main,
   background-color: #b8261c;
 }
 
-.nav__btn {
-  display: flex;
-  gap: 8px;
-}
-.nav__btn--main {
-  background-color: #ff6f61;
-}
-
 /* Home Section */
 .home__section {
   height: 100vh;
@@ -93,6 +125,13 @@ main,
   text-align: center;
   color: #0000ff;
   font-size: 28px;
+  padding: 0 15px;
+}
+@media (max-width: 768px) {
+  .home__section {
+    padding: 0 15px;
+    font-size: 24px;
+  }
 }
 
 .hero__content h1 {
@@ -108,6 +147,11 @@ main,
 .school__section {
   padding: 60px 0;
   background-color: #f4f4f4;
+}
+@media (max-width: 992px) {
+  .school__section {
+    padding: 50px 20px;
+  }
 }
 
 .school__section h2 {
@@ -135,10 +179,26 @@ main,
   width: calc(33.333% - 40px);
   text-align: center;
 }
+@media (max-width: 992px) {
+  .school__grid--project-item {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .school__grid--project-item {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
 
 .courses__section {
-  padding: 60px 0;
+  padding: 60px 30px;
   background-color: #ffffff;
+}
+@media (max-width: 992px) {
+  .courses__section {
+    padding: 50px 20px;
+  }
 }
 
 .courses__section h2 {
@@ -166,6 +226,17 @@ main,
   width: calc(33.333% - 40px);
   text-align: center;
 }
+@media (max-width: 992px) {
+  .course__grid--project-item {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .course__grid--project-item {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
 
 .project-img {
   max-width: 100%;
@@ -177,23 +248,33 @@ main,
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 50px 20px;
   background-color: #f4f4f4;
 }
 .contact__section .container {
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 40px;
+  padding: 20px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 800px;
   text-align: center;
+}
+@media (max-width: 992px) {
+  .contact__section .container {
+    padding: 20px;
+  }
 }
 .contact__section h2 {
   color: #0000ff;
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .contact__section h2 {
+    font-size: 24px;
+  }
 }
 .contact__section p {
   color: #333;
@@ -246,7 +327,7 @@ main,
 
 .footer {
   background-color: #000099;
-  padding: 40px 0;
+  padding: 20px 10px;
   color: #f2f2f2;
 }
 .footer .container {
@@ -257,6 +338,7 @@ main,
   margin: 0 auto;
   padding: 5px;
   flex-wrap: wrap;
+  text-align: center;
 }
 .footer .social-links {
   list-style: none;
@@ -278,6 +360,9 @@ main,
   flex-direction: column;
   align-items: center;
   order: 2;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 10px 0;
 }
 .footer .nav-links li {
@@ -293,9 +378,9 @@ main,
 }
 .footer p {
   order: 3;
-  margin: 10px 0;
   text-align: left;
   color: #f2f2f2;
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

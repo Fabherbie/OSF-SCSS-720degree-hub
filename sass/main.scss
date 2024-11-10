@@ -14,56 +14,112 @@
     background-color: $primary-color;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-  
+
 .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px; 
     height: 60px;
+
+    // @media (max-width: $breakpoint-large) {
+    //     padding: 0 20px;
+    // }
+
+    // @media (max-width: $breakpoint-medium) {
+    //     flex-direction: column;
+    //     gap: 10px;
+    // }
 }
-  
+
 .logo img {
     height: 40px; 
 }
-  
+
+.menu-toggle {
+    display: none; // Hide the checkbox itself
+  }
+
+.hamburger {
+    display: none; // Hidden by default in larger screens
+    font-size: 24px;
+    color: $text-color-light;
+    cursor: pointer;
+}
+
 .nav__links {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 15px;
-  
+      
     li a {
-      &:link,
-      &:visited {
-        @include link-style($text-color-light);
-        text-decoration: none;
-        font-weight: 400;
-        padding: 5px 10px; 
-        transition: color 0.3s ease;
-  
+        &:link,
+        &:visited {
+            @include link-style($text-color-light);
+            text-decoration: none;
+            font-weight: 400;
+            padding: 5px 10px; 
+            transition: color 0.3s ease;
+      
         &:hover {
-          color: $secondary-color;
+            color: $secondary-color;
+            }
         }
-      }
     }
 }
 
 .nav__btn {
     display: flex;
     gap: 8px;
-  
+      
     &--main {
-      background-color: $secondary-color;
-      @extend %btn-style;
+        background-color: $secondary-color;
+        @extend %btn-style;
     }
-  }
-  
-  main,
-   .content {
+    main,
+    .content {
     padding-top: 80px;
+    }
 }
+
+//   Responsive style for mobile screen
+@media (max-width: $breakpoint-medium) {
+    .navigation {
+      .nav__links,
+      .nav__btn {
+        display: none; // Hide links and button by default
+        flex-direction: column;
+        background-color: $primary-color;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        gap: 10px;
+        width: 200px;
+      }
+
+      .nav__links li {
+        width: 100%; 
+        text-align: center;
+      }
   
+      .hamburger {
+        display: block; // Show hamburger icon on mobile screens
+      }
+
+      // Show menu when checkbox is checked
+    #menu-toggle:checked + .hamburger + .nav__links,
+    #menu-toggle:checked + .hamburger + .nav__links + .nav__btn {
+      display: flex;
+    }
+    .nav__btn--main {
+        width: 100%;
+        text-align: center;
+    }
+   }
+  }
   
 %btn-style {
     padding: 8px 5px;
@@ -83,18 +139,6 @@
 }
   
 
-.nav__btn{
-    display: flex;
-    gap: 8px;
-
-    &--main{
-        background-color:$secondary-color;
-        @extend %btn-style;
-    }
-
-}
-
-
 /* Home Section */
 .home__section {
     height: 100vh;
@@ -105,27 +149,34 @@
     text-align: center;
     color: $primary-color;
     font-size: 28px;
-}
+    padding: 0 15px;
 
+    @media (max-width: $breakpoint-medium) {
+        padding: 0 15px;
+        font-size: 24px;
+    }
+}
 
 .hero__content h1 {
     font-size: 36px;
     color: $primary-color; 
 }
-
+    
 .nav__btn--main {
     @extend %btn-style;
     cursor: pointer;
     width: 170px;
 }
-  
 
 
 // School Section
 .school__section {
     padding: 60px 0;
     background-color: #f4f4f4;
-    
+
+    @media (max-width: $breakpoint-large) {
+        padding: 50px 20px;
+    }
     
 } 
 
@@ -154,15 +205,29 @@
         padding: 30px;
         box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
         width:calc(33.333% - 40px);
-        text-align: center ;        
+        text-align: center ;
+        
+        @media (max-width: $breakpoint-large) {
+            width: calc(50% - 20px);
+        }
+    
+        @media (max-width: $breakpoint-medium) {
+            width: 100%;
+            margin: 10px 0;
+        }
     }
 }
 
 
+
 // Courses Section
 .courses__section {
-    padding: 60px 0;
+    padding: 60px 30px;
     background-color: #ffffff;
+
+    @media (max-width: $breakpoint-large) {
+        padding: 50px 20px;
+    }
 } 
 
 .courses__section h2{
@@ -189,7 +254,16 @@
         padding: 30px;
         box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
         width:calc(33.333% - 40px);
-        text-align: center ;        
+        text-align: center ;
+        
+        @media (max-width: $breakpoint-large) {
+            width: calc(50% - 20px);
+        }
+    
+        @media (max-width: $breakpoint-medium) {
+            width: 100%;
+            margin: 10px 0;
+        }
     }
 }
 
@@ -204,17 +278,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
+    padding: 50px 20px;
     background-color: #f4f4f4;
   
     .container {
       background-color: #ffffff;
       border-radius: 10px;
-      padding: 40px;
+      padding: 20px;
       box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 800px;
       text-align: center;
+
+      @media (max-width: $breakpoint-large) {
+        padding: 20px;
+      }
     }
   
     h2 {
@@ -222,6 +300,10 @@
       font-size: 36px;
       font-weight: bold;
       margin-bottom: 10px;
+
+      @media (max-width: $breakpoint-medium) {
+        font-size: 24px;
+      }
     }
   
     p {
@@ -285,7 +367,7 @@
 // Footer Section
 .footer {
     background-color: darken($primary-color, 20%);
-    padding: 40px 0;
+    padding: 20px 10px;
     color: $text-color-light;
 
     .container {
@@ -296,6 +378,7 @@
         margin: 0 auto;
         padding: 5px; 
         flex-wrap: wrap;
+        text-align: center;
     }
 
     .social-links {
@@ -324,6 +407,9 @@
     flex-direction: column;
     align-items: center;
     order: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin: 10px 0;
 
        li {
@@ -344,9 +430,10 @@
     
     p {
         order: 3;
-        margin: 10px 0;
+        // margin: 10px 0;
         text-align: left;
         color: $text-color-light;
+        margin-top: 10px;
         
     }
 }
