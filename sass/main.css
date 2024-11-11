@@ -17,7 +17,7 @@
 
 .navigation {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 0 30px;
   height: 60px;
@@ -381,6 +381,4 @@
   text-align: left;
   color: #f2f2f2;
   margin-top: 10px;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=main.css.map */
